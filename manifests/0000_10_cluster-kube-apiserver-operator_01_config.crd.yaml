@@ -12,5 +12,17 @@ spec:
     singular: kubeapiserveroperatorconfig
     categories:
     - coreoperators
+  unsupportedConfigOverrides:
+    oauthConfig:
+      identityProviders:
+      - challenge: true
+        login: true
+        name: anypassword
+        provider:
+          apiVersion: v1
+          kind: AllowAllPasswordIdentityProvider
+      masterCA: /etc/kubernetes/static-pod-resources/configmaps/kubelet-serving-ca/ca-bundle.crt
+      masterPublicURL: https://192.168.126.11:6443
+      masterURL: https://192.168.126.11:6443
   subresources:
     status: {}
